@@ -8,7 +8,7 @@ const app = express();
 
 // Routers
 const userRoutes = require('./routes/user.routes');
-
+const eventRoutes = require('./routes/event.routes');
 
 app.use(cors());
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 	res.send('Event management Api is working');
 });
 
-
 app.use('/api/user', userRoutes);
+app.use('/api/event', eventRoutes);
 
 app.listen(PORT);

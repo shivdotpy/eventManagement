@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 
 const userModel = mongoose.Schema(
   {
-    mobile: Number
+    mobile: String,
+    loginOTP: String
   },
   {
     timestamps: true

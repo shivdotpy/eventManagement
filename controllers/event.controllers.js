@@ -24,3 +24,14 @@ module.exports.addEvent = (req, res) => {
 		});
 	});
 };
+
+module.exports.getEvents = async (req, res) => {
+    const page = req.params.page;
+    
+    const events = await eventModel.find({}).sort({ createdAt : 'desc'}).skip(9 * page - 9).limit(9).exec();
+    return res.status(200).send({
+        error: false,
+        message: 'Events found',
+        data: events
+    })
+};
